@@ -74,11 +74,6 @@
   }
   h1 em { font-style: normal; color: var(--rasp); }
   .lede { margin-top: 24px; font-size: clamp(17px, 1.6vw, 19px); color: #d6d6d2; max-width: 34em; }
-  .steps { list-style: none; margin-top: 36px; border-top: 1px solid var(--line); }
-  .steps li { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-  .steps .n { color: var(--rasp); font-size: 13px; padding-top: 2px; }
-  .steps b { display: block; font-weight: 700; font-size: 17px; }
-  .steps span { color: var(--grey); font-size: 15px; }
   .perks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
   .perks span { border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 13px; color: #d6d6d2; }
   .btn.jump { display: inline-flex; margin-top: 24px; width: auto; padding: 14px 22px; background: var(--rasp); }
@@ -176,7 +171,7 @@
 
   /* Example of the Earn tab */
   .example { margin-top: 32px; border: 1px solid var(--line); border-radius: 16px; padding: 18px; background: var(--panel); }
-  .example .cap { color: var(--grey); font-size: 11px; text-transform: uppercase; margin-bottom: 12px; }
+  .example .cap { color: #fff; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 14px; }
   .yt { display: grid; gap: 10px; }
   .yt div { background: #fff; color: #0f0f0f; border-radius: 12px; padding: 12px 14px; font-family: system-ui, sans-serif; }
   .yt small { font-size: 13px; font-weight: 600; color: #3f3f3f; }
@@ -185,7 +180,10 @@
   .yt .ok { background: #e6f4ea; color: #137333; }
   .yt .prog { background: #fef1e3; color: #9a5b13; }
   .yt .now { outline: 3px solid var(--rasp); outline-offset: 2px; }
-  .example p { margin-top: 12px; font-size: 14px; color: #d6d6d2; }
+  .example p { margin-top: 12px; font-size: 15px; color: #d6d6d2; }
+  .example p b { color: #fff; }
+  .example p.yes b { color: var(--rasp); }
+  .example p.no { padding-top: 12px; border-top: 1px solid var(--line); }
 
   .status { display: none; margin-top: 16px; padding: 12px 14px; border-radius: 12px; font-size: 14px; }
   .status.err { display: block; background: #fee2e2; color: #b91c1c; }
@@ -201,25 +199,21 @@
 <main class="wrap">
   <section class="pitch">
     <div class="kicker mono">( YouTube Partner Programme · Step 3 )</div>
-    <h1>Reached step 3? <em>Tell us.</em></h1>
-    <p class="lede">Once you've accepted YouTube's terms and linked AdSense, your channel moves to Step 3: Get reviewed. YouTube says this usually takes up to a month. Let us know when you get there and we'll ask the YouTube Shopping team to speed up your review.</p>
-    <a class="btn jump" href="#card">I'm at step 3 <span class="arrow">↓</span></a>
-
-    <ol class="steps">
-      <li><span class="n mono">01</span><div><b>Check your Earn tab</b><span>Open YouTube Studio on a computer and click Earn in the left menu.</span></div></li>
-      <li><span class="n mono">02</span><div><b>Look for Step 3</b><span>Steps 1 and 2 should say Done, and Step 3 should say In progress, like the example below.</span></div></li>
-      <li><span class="n mono">03</span><div><b>Tell us</b><span>Fill in the form. We pass your channel to YouTube to fast-track your review.</span></div></li>
-    </ol>
+    <h1>Seeing this screen? <em>Tell us.</em></h1>
+    <p class="lede">Open YouTube Studio on a computer and click <b>Earn</b>. If you can see the screen below, you're ready. Fill in the form and we'll ask the YouTube Shopping team to speed up your review.</p>
 
     <div class="example">
-      <div class="cap mono">What your Earn tab should look like</div>
+      <div class="cap mono">Can you see this screen?</div>
       <div class="yt" aria-hidden="true">
         <div><small>Step 1<i class="ok">Done</i></small><b>Review Base terms</b></div>
         <div><small>Step 2<i class="ok">Done</i></small><b>Sign up for AdSense for YouTube</b></div>
         <div class="now"><small>Step 3<i class="prog">In progress</i></small><b>Get reviewed</b></div>
       </div>
-      <p>Still on Step 1 or 2? Finish those first. Step 3 starts by itself once they're both done, and YouTube won't send you a notification, so check back in a day or two.</p>
+      <p class="yes"><b>Yes?</b> You're ready. Fill in the form below.</p>
+      <p class="no"><b>No?</b> You haven't finished stages one and two yet. Accept YouTube's terms and link AdSense first, then check back in a day or two. YouTube won't notify you when this screen appears.</p>
     </div>
+
+    <a class="btn jump" href="#card">I can see this screen <span class="arrow">↓</span></a>
 
     <p class="fine">YouTube makes the final decision on every review and emails you the result. Once you're approved, we'll help you join the Shopping affiliate programme and start tagging.</p>
   </section>
@@ -227,7 +221,7 @@
   <section class="card" id="card" aria-live="polite">
     <form id="form" novalidate>
       <div class="card-label mono">Step 3 check-in</div>
-      <h2>I'm at step 3</h2>
+      <h2>I can see that screen</h2>
       <p class="sub">Use the same details you signed up with. Takes a minute.</p>
 
       <fieldset>
@@ -265,7 +259,7 @@
 
       <label class="consent" id="consentWrap">
         <input type="checkbox" id="consent" name="consent">
-        <span>My Earn tab shows Steps 1 and 2 as Done and Step 3 as In progress. I'm happy for Novaro to share my channel with the YouTube Shopping team to speed up my review.</span>
+        <span>My Earn tab looks like the screen on this page. I'm happy for Novaro to share my channel with the YouTube Shopping team to speed up my review.</span>
       </label>
 
       <button class="btn" type="submit" id="submit">Send to Novaro <span class="arrow">→</span></button>
